@@ -1,0 +1,1 @@
+This is repo consisting of all the notes along with code snipptes, practiced problems along with micro inputs i learnt.
