@@ -97,6 +97,31 @@ void mS(vector<int> &arr, int low, int high){
     merge(arr, low, mid, high);
 }
 
+// Quick sort
+
+int partition(vector<int> &arr, int low, int high){
+    int i = low;
+    int j = high;
+    int pivot = arr[low];
+    while (i < j){
+        while ((arr[i] <= pivot) && (i <= high - 1)) i++;
+        while ((arr[j] > pivot) && (j >= low + 1)) j--;
+
+        if(i < j) swap(arr[i], arr[j]);
+    }
+
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+void qS(vector<int> &arr, int low, int high){
+    if(low < high){
+        int prtn = partition(arr, low, high);
+        qS(arr, low, prtn - 1);
+        qS(arr, prtn + 1, high);
+    }
+}
+
 int main(){
     int n;
     cin >> n;
@@ -107,7 +132,7 @@ int main(){
     //     cin >> arr[i];
     // }
 
-    // below for loop is for merge sort
+    // below for loop is for merge and quick sort
     vector<int> arr;
     for (int i = 0; i < n; i++){
         int num;
@@ -115,7 +140,7 @@ int main(){
         arr.push_back(num);
     }
 
-    mS(arr, 0, n - 1);
+    qS(arr, 0, n - 1);
 
     for (int i = 0; i < n; i++){
         cout << arr[i] << " ";
