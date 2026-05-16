@@ -97,7 +97,7 @@ void mS(vector<int> &arr, int low, int high){
     merge(arr, low, mid, high);
 }
 
-// Quick sort
+// Quick sort --> In worst case : TC is O(N*logN) and SC is O(1) as no new temp is used.
 
 int partition(vector<int> &arr, int low, int high){
     int i = low;
